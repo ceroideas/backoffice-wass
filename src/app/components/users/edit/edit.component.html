@@ -1,0 +1,75 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Edit user</span>
+    <span class="spacer-toolbar"></span>
+    <button mat-flat-button color="accent" routerLink="/users">List users</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<hr>
+<div class="row">
+  <div class="col-lg-12 grid-margin">
+
+    <div class="row" *ngIf="!progressBar">
+      <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
+        <mat-toolbar color="primary">
+          <mat-toolbar-row>
+          <span>User information</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+
+        <mat-card>
+          <form class="example-form" [formGroup]="registerForm">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 grid-margin">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="First name" formControlName="firstName">
+                </mat-form-field>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 grid-margin">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Name" formControlName="name">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 grid-margin">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 grid-margin">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Nationality</mat-label>
+                  <mat-select formControlName="nationality">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 grid-margin">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status">
+                    <mat-option *ngFor="let state of status" [value]="state.value">
+                      {{state.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <button mat-flat-button color="primary" [disabled]="!registerForm.valid" (click)="onFormSubmit(registerForm.value)">SAVE</button>
+
+          </form>
+        </mat-card>
+      </div>
+    </div> 
+  </div>
+</div>
+<mat-spinner *ngIf="progressBar"></mat-spinner>

@@ -1,0 +1,46 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>List posts</span>
+    <span class="spacer-toolbar"></span>
+    <button mat-raised-button color="primary" routerLink="/blog/create">New post</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="row" *ngIf="!progressBar">
+  <div class="col-xs-12 col-sm-6 col-md-4 grid-margin">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Search" name="filterBlogs" [(ngModel)]="filterBlogs"> 
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="card" *ngIf="!progressBar">
+  <div class="card-body" *ngFor="let blog of blogs | blogs: filterBlogs | paginate: {itemsPerPage: 5, currentPage: pageActived}">
+    <div class="row">
+      
+      <div class="col-md-4">
+        <img alt="" class="img-fluid w-100 rounded" [src]="firstImage(blog)">
+      </div>
+      <div class="col-md-8">
+        <h5 class="mb-3">{{ blog.title }}</h5>
+        <p><small>Created at: <strong>{{ blog.createdOn | amDateFormat:'LL' }}</strong></small></p>
+        <p>
+          {{ blog.shortDescription }}
+        </p>
+        
+        <button mat-mini-fab aria-label="" color="primary" [routerLink]="['/blog/edit', blog._id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab aria-label="" color="warn" (focus)="deleteBlog(blog)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls (pageChange)="pageActived = $event"></pagination-controls>
+
+<mat-spinner *ngIf="progressBar" ></mat-spinner>

@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <mat-progress-bar mode="buffer" *ngIf="progressBarUsers"></mat-progress-bar>
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-account-group text-danger icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Registered users</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">{{ users }}</h3>
+            </div>
+          </div>
+        </div>
+        <!-- <p class="text-muted mt-3 mb-0">
+          <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
+        </p> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+        <mat-progress-bar mode="buffer" *ngIf="progressBarAreas"></mat-progress-bar>
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-map text-warning icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Areas</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">{{ areas }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <mat-progress-bar mode="buffer" *ngIf="progressBarComments"></mat-progress-bar>
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-comment text-success icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Comments</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">{{ comments }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <mat-progress-bar mode="buffer" *ngIf="progressBarBlogs"></mat-progress-bar>
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-blogger text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right">Bloggers</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">{{ blogs }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6 col-lg-5 col-md-5 col-sm-12 grid-margin">
+  <app-pie-chart></app-pie-chart>
+  </div>
+  <div class="col-xl-6 col-lg-7 col-md-7 col-sm-12 grid-margin">
+    <app-last-comments></app-last-comments>
+  </div>
+</div>
+<app-last-users></app-last-users>
+
+
+  

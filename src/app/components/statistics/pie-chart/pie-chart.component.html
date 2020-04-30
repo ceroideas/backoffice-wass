@@ -1,0 +1,21 @@
+<div class="card" *ngIf="!progressBar">
+  <div class="card-body">
+    <div class="chart">
+      <canvas baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [colors]="pieChartColors"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+
+    <!-- <div class="flex-center mt-20">
+      <button type="button" class="btn btn-dark btn-fw" (click)="changeLegendPosition()">Update</button>
+    </div> -->
+  </div>
+</div>
+
+<mat-spinner *ngIf="progressBar"></mat-spinner>

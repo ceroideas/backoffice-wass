@@ -1,0 +1,52 @@
+<div class="row" *ngIf="!progressBar">
+  <div class="col-xs-12 col-sm-6 col-md-4 grid-margin">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Search" name="filterComments" [(ngModel)]="filterComments"> 
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 grid-margin">    
+    <div class="card" *ngIf="!progressBar">
+      <div class="card-body">
+        <h5 class="card-title mb-4">All comments</h5>
+        <div class="fluid-container">
+          <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3" *ngFor="let comment of comments | comments: filterComments | paginate: {itemsPerPage: 5, currentPage: pageActived}">
+            <div class="col-xs-2 col-sm-1 col-md-1">
+              <img class="img-sm rounded-circle mb-4 mb-md-0" [src]="comment.userId.avatar" alt="profile image" *ngIf="comment.userId.avatar">
+              <img class="img-sm rounded-circle mb-4 mb-md-0" src="assets/images/faces-clipart/pic-1.png" alt="profile image" *ngIf="!comment.userId.avatar">
+            </div>
+            <div class="ticket-details col-xs-10 col-sm-7 col-md-7">
+              <div class="d-flex">
+                <a mat-button routerLink="." class="status" color="warn" *ngIf="comment.status == 'hidden'">Status: {{ comment.status }}</a>
+                <a mat-button routerLink="." class="status" *ngIf="comment.status == 'public'">Status: {{ comment.status }}</a>
+              </div>
+              <p class="text-gray ellipsis mb-2"><strong>{{ comment.userId.firstName }}:</strong> {{ comment.comment }}</p>
+              <p class="text-gray ellipsis mb-2"><strong>Location:</strong> {{ comment.location.name }}, {{ comment.location.vicinity }} - <span class="reports"><strong>Reports ({{ comment.reports.length }})</strong></span></p>
+
+              <bar-rating [(rate)]="comment.rate" [max]="5" [readOnly]="true" [theme]="'stars'" class="bar-rating"></bar-rating>
+              
+              <div class="row text-gray d-md-flex d-none">
+                <div class="col-4 d-flex">
+                  <small class="Last-responded mr-2 mb-0 text-muted text-muted">Date : {{ comment.createdOn | amDateFormat:'LL' }}</small>
+                </div>
+                <div class="col-4 d-flex">
+                </div>
+              </div>
+            </div>
+            <div class="ticket-actions col-xs-12 col-sm-4 col-md-3">
+              <button mat-mini-fab aria-label="" color="warn" (focus)="deleteComment(comment)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <pagination-controls (pageChange)="pageActived = $event"></pagination-controls>
+
+    <mat-spinner *ngIf="progressBar" ></mat-spinner>
+  </div>
+</div>

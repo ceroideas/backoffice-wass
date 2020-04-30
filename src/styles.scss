@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import './assets/styles/variables';
+@import "../node_modules/compass-mixins/lib/compass";
+@import "../node_modules/compass-mixins/lib/animate";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/mdi/scss/materialdesignicons";
+@import "../node_modules/font-awesome/scss/font-awesome";
+@import "./assets/styles/fonts";
+@import "./assets/styles/functions";
+@import "./assets/styles/mixins/background";
+@import "./assets/styles/mixins/animation";
+@import "./assets/styles/mixins/badges";
+@import "./assets/styles/mixins/breadcrumbs";
+@import "./assets/styles/mixins/pagination";
+@import "./assets/styles/mixins/buttons";
+@import "./assets/styles/mixins/misc";
+@import "./assets/styles/mixins/color-functions";
+@import "./assets/styles/mixins/cards";
+@import "./assets/styles/mixins/tooltips";
+@import "./assets/styles/mixins/popovers";
+@import "./assets/styles/mixins/blockqoute";
+@import "./assets/styles/accordions";
+@import "./assets/styles/breadcrumbs";
+@import "./assets/styles/forms";
+@import "./assets/styles/icons";
+@import "./assets/styles/tables";
+@import "./assets/styles/buttons";
+@import "./assets/styles/badges";
+@import "./assets/styles/cards";
+@import "./assets/styles/typography";
+@import "./assets/styles/preview";
+@import "./assets/styles/lists";
+@import "./assets/styles/bootstrap-progress";
+@import "./assets/styles/bootstrap-alerts";
+@import "./assets/styles/tabs";
+@import "./assets/styles/dropdowns";
+@import "./assets/styles/pagination";
+@import "./assets/styles/popovers";
+@import "./assets/styles/modals";
+@import "./assets/styles/nav";
+@import "./assets/styles/reset";
+@import "./assets/styles/rating";
+@import "./assets/styles/layouts";
+@import "./assets/styles/tooltips";
+@import "./assets/styles/responsive";
+@import "./assets/styles/misc";
+@import "./assets/styles/utilities";
+@import "./assets/styles/demo";
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-bar-rating/themes/br-stars-theme';
+
+.flex-center{
+    display: flex; align-content: center; justify-content: center; width: 100%;
+}
+
+.mt-20{
+    margin-top: 20px !important;
+}
+.mt-50{
+    margin-top: 50px !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.spacer-toolbar{
+    flex: 1 1 auto;
+}
+
+.mat-spinner{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bar-rating {
+  .br{
+    margin: 0px !important;
+    max-width: 100px;
+  }
+}
+
+.spinner-status {
+    width: 40px;
+    height: 40px;
+    
+    &.success{
+        background-color: $green;
+    }
+    &.danger{
+        background-color: $red;
+    }
+  
+    border-radius: 100%;  
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+  
+  @-webkit-keyframes sk-scaleout {
+    0% { -webkit-transform: scale(0) }
+    100% {
+      -webkit-transform: scale(1.0);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes sk-scaleout {
+    0% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+    }
+  }

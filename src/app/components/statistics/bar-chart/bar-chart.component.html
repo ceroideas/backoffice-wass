@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+    <div class="flex-center mt-20">
+      <button type="button" class="btn btn-dark btn-fw" (click)="randomize()">Update</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Edit post</span>
+    <span class="spacer-toolbar"></span>
+    <button mat-flat-button color="accent" routerLink="/blog">List posts</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<hr>
+
+<form [formGroup]="registerForm" class="full-width" novalidate>
+
+<div class="row" *ngIf="!progressBar">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+      <mat-card style="margin-bottom: 20px;">
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+        
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Short description" formControlName="shortDescription">
+          </mat-form-field>          
+        </mat-card-content>
+      </mat-card>
+
+      <app-ngx-editor [config]="editorConfig" formControlName="description" [spellcheck]="true"></app-ngx-editor>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <mat-card>
+        <h5 class="mb-3">Configuration</h5>
+        <hr>
+        <label id="status">Visibility</label>
+        <mat-radio-group aria-label="status" formControlName="status">
+          <mat-radio-button value="publish" >Publish</mat-radio-button>
+          <mat-radio-button value="draft">Draft</mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
+
+      <mat-card>
+        <h5 class="mb-3">Author</h5>
+        <hr>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="" formControlName="author">
+        </mat-form-field>    
+      </mat-card>
+
+      <mat-card>
+        <h5 class="mb-3">Media</h5>
+        <hr>
+        <input type="file" id="image" (change)="onFileChange($event)" #fileInput>        
+      </mat-card>
+
+      <button mat-flat-button color="accent" type="submit" class="mt-20" [disabled]="!registerForm.valid" (click)="onFormSubmit(registerForm.value)">SAVE</button>
+
+    </div>
+</div>
+</form>
+<mat-spinner *ngIf="progressBar" ></mat-spinner>
